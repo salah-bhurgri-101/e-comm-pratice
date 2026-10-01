@@ -1,0 +1,122 @@
+<div class="contact-page">
+
+  <!-- HERO -->
+  <section class="contact-hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>
+        We’re here to help. Reach out to us anytime and we’ll happily
+        answer your questions.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO -->
+  <section class="contact-info-section">
+    <div class="container info-grid">
+
+      <div class="info-box">
+        <span class="icon">📍</span>
+        <h3>Our Office</h3>
+        <p>Karachi, Pakistan<br />Global Operations</p>
+      </div>
+
+      <div class="info-box">
+        <span class="icon">📞</span>
+        <h3>Call Us</h3>
+        <p>+92 300 1234567<br />Mon – Fri, 9am – 6pm</p>
+      </div>
+
+      <div class="info-box">
+        <span class="icon">✉️</span>
+        <h3>Email</h3>
+        <p>support &#64; mystore.com<br />info&#64;mystore.com</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FORM + DETAILS -->
+  <section class="contact-main">
+    <div class="container two-col">
+
+      <!-- FORM -->
+      <div class="form-card">
+        <h2>Send Us a Message</h2>
+        <p>We usually respond within 24 hours.</p>
+
+        <form>
+          <div class="form-row">
+            <input type="text" placeholder="Full Name" required />
+            <input type="email" placeholder="Email Address" required />
+          </div>
+
+          <input type="text" placeholder="Subject" />
+
+          <textarea rows="5" placeholder="Your Message"></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <!-- DETAILS -->
+      <div class="details-card">
+        <h2>Why Contact MyStore?</h2>
+
+        <ul>
+          <li>✔ Fast & friendly customer support</li>
+          <li>✔ Secure shopping assistance</li>
+          <li>✔ Business & partnership inquiries</li>
+          <li>✔ Product & order help</li>
+        </ul>
+
+        <div class="social-links">
+          <a href="#">🌐</a>
+          <a href="#">📘</a>
+          <a href="#">📸</a>
+          <a href="#">🐦</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section">
+    <iframe
+      src="https://maps.google.com/maps?q=karachi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      loading="lazy">
+    </iframe>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to common questions</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-card" *ngFor="let faq of faqs">
+          <h4>{{ faq.question }}</h4>
+          <p>{{ faq.answer }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="contact-cta">
+    <div class="container">
+      <h2>We’d Love to Hear From You</h2>
+      <p>
+        Whether you have a question, feedback, or idea — we’re listening.
+      </p>
+      <a routerLink="/products" class="cta-btn">
+        Explore Products
+      </a>
+    </div>
+  </section>
+
+</div>

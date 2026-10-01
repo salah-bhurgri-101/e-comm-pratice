@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+   margin: 0;
+  // overflow: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #fafafa;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+    border-radius: 0;
+
+    &:hover {
+      background: #333;
+    }
+  }
+}
+
+
+
+/* ============================= */
+/* GLOBAL SCROLLBAR DESIGN       */
+/* ============================= */
+
+/* Chrome, Edge, Safari */
+// * {
+//   &::-webkit-scrollbar {
+//     display: none;
+//     width: 8px;
+//     height: 8px;
+//   }
+
+//   &::-webkit-scrollbar-track {
+//     background: #fafafa;
+//   }
+
+//   &::-webkit-scrollbar-thumb {
+//     background: #1a1a1a;
+//     border-radius: 0;
+
+//     &:hover {
+//       background: #333;
+//     }
+//   }
+// }
+

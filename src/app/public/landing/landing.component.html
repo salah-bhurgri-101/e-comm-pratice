@@ -1,0 +1,54 @@
+<div class="landing-page">
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Power Your Network with Reliable Devices</h1>
+      <p class="hero-subtitle">
+        Routers, switches, fiber equipment, and networking hardware built for speed and stability
+      </p>
+      <button class="hero-button">Explore Devices</button>
+    </div>
+  </section>
+
+  <!-- DEVICE CATEGORIES -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Device Categories</h2>
+        <p class="section-description">
+          Choose the right networking equipment for home, office, or enterprise
+        </p>
+      </div>
+
+      <div class="categories-carousel">
+        <div class="carousel-track">
+          <app-category-card
+            *ngFor="let category of categories"
+            [category]="category">
+          </app-category-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED DEVICES -->
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">All Products</h2>
+        <p class="section-description">
+          High-performance devices trusted for fast and secure connectivity
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <app-product-card
+          *ngFor="let product of products"
+          [product]="product">
+        </app-product-card>
+      </div>
+    </div>
+  </section>
+
+</div>

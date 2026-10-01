@@ -1,0 +1,59 @@
+<div class="dashboard">
+
+  <!-- PAGE TITLE -->
+  <h1 class="page-title">Dashboard</h1>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div
+      class="stat-card"
+      *ngFor="let stat of stats"
+      [class]="stat.color"
+    >
+      <div class="stat-icon">{{ stat.icon }}</div>
+      <div class="stat-info">
+        <h3>{{ stat.value }}</h3>
+        <p>{{ stat.title }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECENT ACTIVITY -->
+  <div class="section">
+    <h2 class="section-title">Recent Activity</h2>
+
+    <div class="activity-list">
+      <div class="activity-item" *ngFor="let act of activities">
+        <span class="activity-icon">{{ act.icon }}</span>
+        <div class="activity-content">
+          <p>{{ act.message }}</p>
+          <small>{{ act.time }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK ACTIONS -->
+  <div class="section">
+    <h2 class="section-title">Quick Actions</h2>
+
+    <div class="actions-grid">
+      <button class="action-btn" (click)="quickAction('product')">
+        ➕ Add Product
+      </button>
+
+      <button class="action-btn" (click)="quickAction('category')">
+        🗂️ Add Category
+      </button>
+
+      <button class="action-btn" (click)="quickAction('reports')">
+        📊 View Reports
+      </button>
+
+      <button class="action-btn" (click)="quickAction('settings')">
+        ⚙️ Settings
+      </button>
+    </div>
+  </div>
+
+</div>

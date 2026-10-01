@@ -1,0 +1,188 @@
+<div class="product-detail-page" *ngIf="product">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a routerLink="/">Home</a>
+    <span>›</span>
+    <a routerLink="/products">Products</a>
+    <span>›</span>
+    <a [routerLink]="['/category', product.category]">{{ product.category }}</a>
+    <span>›</span>
+    <span>{{ product.name }}</span>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="product-main">
+
+    <!-- IMAGE GALLERY -->
+    <div class="image-gallery">
+      <div class="main-image">
+        <img [src]="product.images[selectedImage]" [alt]="product.name">
+      </div>
+
+      <div class="thumbnail-grid">
+        <div 
+          *ngFor="let img of product.images; let i = index"
+          class="thumbnail"
+          [class.active]="selectedImage === i"
+          (click)="selectImage(i)">
+          <img [src]="img" [alt]="product.name">
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT INFO -->
+    <div class="product-info">
+
+      <!-- BADGES -->
+      <div class="badges">
+        <span class="badge sale" *ngIf="discountPercentage">-{{ discountPercentage }}% OFF</span>
+        <span class="badge stock" [class.out]="!product.inStock">
+          {{ product.inStock ? 'IN STOCK' : 'OUT OF STOCK' }}
+        </span>
+      </div>
+
+      <!-- TITLE -->
+      <h1 class="product-title">{{ product.name }}</h1>
+
+      <!-- META -->
+      <div class="product-meta">
+        <span class="brand">Brand: <strong>{{ product.brand }}</strong></span>
+        <span class="category">Category: <strong>{{ product.category }}</strong></span>
+      </div>
+
+      <!-- RATING -->
+      <div class="rating-section">
+        <div class="stars">
+          <span *ngFor="let filled of starArray" [class.filled]="filled" class="star">★</span>
+        </div>
+        <span class="rating-text">{{ product.rating }} ({{ product.reviewCount }} reviews)</span>
+      </div>
+
+      <!-- PRICE -->
+      <div class="price-section">
+        <div class="price-wrapper">
+          <span class="current-price">${{ product.price.toFixed(2) }}</span>
+          <span class="original-price" *ngIf="product.originalPrice">${{ product.originalPrice.toFixed(2) }}</span>
+        </div>
+        <p class="savings" *ngIf="product.originalPrice">
+          You save ${{ (product.originalPrice - product.price).toFixed(2) }}
+        </p>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <div class="short-description">
+        <p>{{ product.description }}</p>
+      </div>
+
+      <!-- QUANTITY -->
+      <div class="quantity-section">
+        <label>Quantity:</label>
+        <div class="quantity-controls">
+          <button (click)="decrementQuantity()" [disabled]="quantity <= 1">−</button>
+          <input type="number" [(ngModel)]="quantity" [max]="product.stock" min="1">
+          <button (click)="incrementQuantity()" [disabled]="quantity >= product.stock">+</button>
+        </div>
+        <span class="stock-info">{{ product.stock }} available</span>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="action-buttons">
+        <button class="btn-primary" (click)="addToCart()" [disabled]="!product.inStock">
+          🛒 Add to Cart
+        </button>
+        <button class="btn-secondary" (click)="buyNow()" [disabled]="!product.inStock">
+          ⚡ Buy Now
+        </button>
+      </div>
+
+      <!-- FEATURES -->
+      <div class="quick-features">
+        <div class="feature-item">
+          <span class="icon">✓</span>
+          <span>Free Shipping</span>
+        </div>
+        <div class="feature-item">
+          <span class="icon">↻</span>
+          <span>30-Day Returns</span>
+        </div>
+        <div class="feature-item">
+          <span class="icon">🛡️</span>
+          <span>1 Year Warranty</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TABS SECTION -->
+  <div class="product-tabs">
+    <div class="tab-headers">
+      <button 
+        [class.active]="activeTab === 'description'"
+        (click)="setActiveTab('description')">
+        Description
+      </button>
+      <button 
+        [class.active]="activeTab === 'specifications'"
+        (click)="setActiveTab('specifications')">
+        Specifications
+      </button>
+      <button 
+        [class.active]="activeTab === 'reviews'"
+        (click)="setActiveTab('reviews')">
+        Reviews ({{ product.reviewCount }})
+      </button>
+    </div>
+
+    <div class="tab-content">
+
+      <!-- DESCRIPTION TAB -->
+      <div *ngIf="activeTab === 'description'" class="tab-panel">
+        <h3>Product Description</h3>
+        <p>{{ product.description }}</p>
+
+        <h4>Key Features</h4>
+        <ul class="features-list">
+          <li *ngFor="let feature of product.features">{{ feature }}</li>
+        </ul>
+      </div>
+
+      <!-- SPECIFICATIONS TAB -->
+      <div *ngIf="activeTab === 'specifications'" class="tab-panel">
+        <h3>Technical Specifications</h3>
+        <div class="spec-table">
+          <div class="spec-row" *ngFor="let spec of product.specifications">
+            <div class="spec-label">{{ spec.label }}</div>
+            <div class="spec-value">{{ spec.value }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REVIEWS TAB -->
+      <div *ngIf="activeTab === 'reviews'" class="tab-panel">
+        <h3>Customer Reviews</h3>
+
+        <div class="reviews-list">
+          <div class="review-card" *ngFor="let review of reviews">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <span class="avatar">{{ review.avatar }}</span>
+                <div>
+                  <h5>{{ review.userName }}</h5>
+                  <span class="review-date">{{ review.date }}</span>
+                </div>
+              </div>
+              <div class="review-stars">
+                <span *ngFor="let filled of getReviewStars(review.rating)" [class.filled]="filled" class="star">★</span>
+              </div>
+            </div>
+            <p class="review-comment">{{ review.comment }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

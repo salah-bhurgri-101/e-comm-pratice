@@ -1,0 +1,72 @@
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" [class.collapsed]="isSidebarCollapsed">
+    <div class="sidebar-header">
+      <div class="logo" *ngIf="!isSidebarCollapsed">
+        <span class="logo-icon">🛒</span>
+        <span class="logo-text">Admin Panel</span>
+      </div>
+
+      <div class="logo-small" *ngIf="isSidebarCollapsed">
+        <span class="logo-icon">🛒</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-menu">
+      <ul class="menu-list">
+        <li
+          *ngFor="let item of menuItems"
+          class="menu-item"
+          [class.active]="activeMenu === item.id"
+        >
+          <a
+            class="menu-link"
+            [routerLink]="item.route"
+            (click)="setActiveMenu(item.id)"
+          >
+            <span class="menu-icon">{{ item.icon }}</span>
+            <span class="menu-label" *ngIf="!isSidebarCollapsed">
+              {{ item.label }}
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="logout-btn" (click)="logout()">
+        <span class="menu-icon">🚪</span>
+        <span class="menu-label" *ngIf="!isSidebarCollapsed">Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <!-- HEADER -->
+    <header class="top-header">
+      <button class="menu-toggle" (click)="toggleSidebar()">
+        ☰
+      </button>
+
+      <div class="header-right">
+        <div class="user-info">
+          <span class="user-name">{{ userName }}</span>
+          <div class="user-avatar">👤</div>
+        </div>
+
+        <button class="logout-btn-header" (click)="logout()">
+          🚪 Logout
+        </button>
+      </div>
+    </header>
+
+    <!-- ROUTED PAGE CONTENT -->
+    <main class="content-area">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+</div>

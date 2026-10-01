@@ -1,0 +1,75 @@
+<div class="profile-page">
+
+  <!-- PAGE TITLE -->
+  <h1 class="page-title">My Profile</h1>
+
+  <!-- PROFILE CARD -->
+  <div class="profile-card">
+
+    <!-- HEADER -->
+    <div class="profile-header">
+      <div class="avatar">👤</div>
+      <div class="info">
+        <h2>{{ profile.fullName }}</h2>
+        <p>{{ profile.role }}</p>
+      </div>
+
+      <button class="edit-btn" *ngIf="!isEditMode" (click)="toggleEdit()">
+        ✏️ Edit
+      </button>
+    </div>
+
+    <!-- VIEW MODE -->
+    <div class="profile-details" *ngIf="!isEditMode">
+      <div class="detail-row">
+        <label>Email</label>
+        <span>{{ profile.email }}</span>
+      </div>
+
+      <div class="detail-row">
+        <label>Phone</label>
+        <span>{{ profile.phone }}</span>
+      </div>
+
+      <div class="detail-row">
+        <label>Address</label>
+        <span>{{ profile.address }}</span>
+      </div>
+    </div>
+
+    <!-- EDIT MODE -->
+    <form class="profile-form" *ngIf="isEditMode">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" [(ngModel)]="profile.fullName" name="fullName" />
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="profile.email" name="email" />
+      </div>
+
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" [(ngModel)]="profile.phone" name="phone" />
+      </div>
+
+      <div class="form-group">
+        <label>Address</label>
+        <textarea [(ngModel)]="profile.address" name="address"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="save-btn" (click)="saveProfile()">
+          💾 Save
+        </button>
+
+        <button type="button" class="cancel-btn" (click)="cancelEdit()">
+          ❌ Cancel
+        </button>
+      </div>
+    </form>
+
+  </div>
+
+</div>

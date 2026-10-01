@@ -1,0 +1,122 @@
+<div class="about-page">
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="container">
+      <h1>About MyStore</h1>
+      <p>
+        We are building a modern shopping experience focused on quality,
+        trust, and customer satisfaction.
+      </p>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="about-section">
+    <div class="container two-col">
+      <div>
+        <h2>Our Story</h2>
+        <p>
+          MyStore was founded with a simple vision: to make online shopping
+          easy, secure, and enjoyable for everyone. We believe technology
+          should simplify life, not complicate it.
+        </p>
+        <p>
+          From curated product selections to fast delivery and reliable
+          support, every decision we make is focused on the customer.
+        </p>
+      </div>
+
+      <div class="image-card">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d"
+             alt="Our Story">
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION / VISION -->
+  <section class="about-section light">
+    <div class="container three-col">
+
+      <div class="info-card">
+        <h3>🎯 Our Mission</h3>
+        <p>
+          Deliver high-quality products at fair prices while providing an
+          exceptional customer experience.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>🚀 Our Vision</h3>
+        <p>
+          Become a trusted global marketplace where people confidently
+          shop and sellers grow their businesses.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>💎 Our Values</h3>
+        <p>
+          Transparency, innovation, customer focus, and long-term trust
+          guide everything we do.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="container stats-grid">
+      <div class="stat">
+        <h2>10K+</h2>
+        <p>Happy Customers</p>
+      </div>
+      <div class="stat">
+        <h2>5K+</h2>
+        <p>Products</p>
+      </div>
+      <div class="stat">
+        <h2>120+</h2>
+        <p>Brands</p>
+      </div>
+      <div class="stat">
+        <h2>24/7</h2>
+        <p>Support</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="about-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Meet Our Team</h2>
+        <p>Passionate people behind MyStore</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card" *ngFor="let member of team">
+          <img [src]="member.image" alt="Team member">
+          <h4>{{ member.name }}</h4>
+          <span>{{ member.role }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Join Our Journey</h2>
+      <p>
+        Experience shopping the way it should be — simple, secure,
+        and enjoyable.
+      </p>
+      <a routerLink="/products" class="cta-button">
+        Explore Products
+      </a>
+    </div>
+  </section>
+
+</div>

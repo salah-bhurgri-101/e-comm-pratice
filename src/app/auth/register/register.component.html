@@ -1,0 +1,152 @@
+<div class="register-shell">
+
+  <!-- LEFT STORY PANEL -->
+  <section class="story-panel">
+    <div class="story-content">
+
+      <span class="story-badge">Join the Experience</span>
+
+      <h1>Create Your Account</h1>
+      <p class="story-subtitle">
+        Become part of a premium marketplace crafted for quality, trust,
+        and seamless shopping.
+      </p>
+
+      <div class="story-stats">
+        <div class="stat">
+          <h3>50K+</h3>
+          <p>Active Members</p>
+        </div>
+        <div class="stat">
+          <h3>120+</h3>
+          <p>Verified Brands</p>
+        </div>
+        <div class="stat">
+          <h3>99.9%</h3>
+          <p>Secure Transactions</p>
+        </div>
+      </div>
+
+      <div class="story-footer">
+        Secure • Trusted • Premium
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RIGHT FORM PANEL -->
+  <section class="register-panel">
+    <div class="register-card">
+
+      <div class="card-header">
+        <h2>Get Started</h2>
+        <p>Create your personal account</p>
+      </div>
+
+      <form (ngSubmit)="register()" #registerForm="ngForm">
+
+        <!-- NAME -->
+        <div class="row">
+          <div class="field">
+            <label>First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              [(ngModel)]="firstName"
+              required
+              placeholder="John"
+            />
+          </div>
+
+          <div class="field">
+            <label>Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              [(ngModel)]="lastName"
+              required
+              placeholder="Doe"
+            />
+          </div>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="field">
+          <label>Email Address</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            placeholder="john@example.com"
+          />
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="field">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="password"
+            required
+            placeholder="Create a strong password"
+          />
+          <small class="hint">
+            Minimum 8 characters, mix of letters & numbers
+          </small>
+        </div>
+
+        <!-- CONFIRM -->
+        <div class="field">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            [(ngModel)]="confirmPassword"
+            required
+            placeholder="Repeat password"
+          />
+        </div>
+
+        <!-- TERMS -->
+        <div class="terms">
+          <label>
+            <input type="checkbox" required />
+            I agree to the
+            <a href="#">Terms</a> and
+            <a href="#">Privacy Policy</a>
+          </label>
+        </div>
+
+        <!-- SUBMIT -->
+        <button
+          class="register-btn"
+          [disabled]="registerForm.invalid"
+        >
+          Create Account
+        </button>
+
+      </form>
+
+      <!-- DIVIDER -->
+      <div class="divider">
+        <span>or sign up with</span>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="social-register">
+        <button class="social google">Google</button>
+        <button class="social apple">Apple</button>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="card-footer">
+        Already have an account?
+        <a routerLink="/login">Sign in</a>
+      </div>
+
+    </div>
+  </section>
+
+</div>

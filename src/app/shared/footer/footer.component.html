@@ -1,0 +1,77 @@
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <!-- About Section -->
+      <div class="footer-section">
+        <h3 class="footer-title">
+          <span class="logo-icon">🛒</span>
+          MyStore
+        </h3>
+        <p class="footer-description">
+          Your one-stop shop for all your needs. Quality products, great prices, and excellent service.
+        </p>
+        <div class="social-links">
+          <a *ngFor="let social of socialLinks" 
+             [href]="social.url" 
+             [title]="social.name"
+             class="social-link"
+             target="_blank"
+             rel="noopener">
+            <span>{{ social.icon }}</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h4 class="section-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li *ngFor="let link of quickLinks">
+            <a [routerLink]="link.route">{{ link.label }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="footer-section">
+        <h4 class="section-title">Categories</h4>
+        <ul class="footer-links">
+          <li *ngFor="let category of categories">
+            <a [routerLink]="category.route">{{ category.label }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-section">
+        <h4 class="section-title">Contact Us</h4>
+        <ul class="contact-info">
+          <li>
+            <span class="icon">📧</span>
+            <span>info&#64;mystore.com</span>
+          </li>
+          <li>
+            <span class="icon">📞</span>
+            <span>+1 (555) 123-4567</span>
+          </li>
+          <li>
+            <span class="icon">📍</span>
+            <span>123 Store Street, City, Country</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {{ currentYear }} MyStore. All rights reserved.
+      </p>
+      <div class="footer-bottom-links">
+        <a routerLink="/privacy">Privacy Policy</a>
+        <span class="divider">|</span>
+        <a routerLink="/terms">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
